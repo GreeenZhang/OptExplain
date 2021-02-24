@@ -4,5 +4,5 @@
 
 To run example in ``tests`` director:
 
--OptExplain_diabetes.py
--ProClass_diabetes.py
+- OptExplain_diabetes.py
+- ProClass_diabetes.py
