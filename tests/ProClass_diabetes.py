@@ -1,4 +1,7 @@
+import sys
 import os
+sys.path.append(os.path.abspath('./'))
+sys.path.append(os.path.abspath('../'))
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
@@ -21,7 +24,6 @@ if __name__ == "__main__":
     # 划分训练集 和测试集
     X_train, X_test, y_train, y_test = train_test_split(
              X, y, train_size=train_samples, test_size=10, random_state=0)
-    print(len(X_train))
     X_test = np.array(X_test)
     y_test = np.array(y_test)
     print('RF...')
