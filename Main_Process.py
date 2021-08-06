@@ -138,7 +138,7 @@ class MainProcess(object):
         z_best = pop[:, i]  # 群体最优位置
         fitness_gbest = fitness  # 记录个体最优适应度
         fitness_zbest = fitness[i]  # 群体最优适应度
-        print('初始最优', i, '\t', pop[:, i], '\t', offset[i]/sample_num, r_num[i], 'fitness:', fitness[i])
+        print('initial best: ', i, '\t', pop[:, i], '\t', offset[i]/sample_num, r_num[i], 'fitness:', fitness[i])
         self._file.write('0:\t{}\t{}\t{:.2f}\t{} fitness: {:.2f}\n'.format(i, pop[:, i], (offset[i]/sample_num), r_num[i],
                                                                        fitness[i]))
 
@@ -233,20 +233,20 @@ class MainProcess(object):
         end1 = time()
         print("EX Running time: %s seconds" % (end1 - start1))
 
-        print("原始路径数量：", ex.n_original_leaves_num)
-        print("原始规模：", ex.scale)
-        print("rule filter后路径数量：", len(ex._forest_values))
-        self._file.write('原始路径数量：{}\n'.format(ex.n_original_leaves_num))
-        self._file.write('原始规模：{}\n'.format(ex.scale))
-        self._file.write('rule filter后路径数量：{}\n'.format(len(ex._forest_values)))
+        print("original path number: ", ex.n_original_leaves_num)
+        print("original scale: ", ex.scale)
+        print("path number after rule filter: ", len(ex._forest_values))
+        self._file.write('original path number: {}\n'.format(ex.n_original_leaves_num))
+        self._file.write('original scale: {}\n'.format(ex.scale))
+        self._file.write('path number after rule filter: {}\n'.format(len(ex._forest_values)))
 
         start2 = time()
         sat = Z3Process(ex, k)
         sat.leaves_partition()
         if self._maxsat_on is True:
             sat.maxsat()
-            print("maxsat后路径数量：", sat.n_rules_after_max, " 过滤后： ", sat.n_rules_after_filter, '\n')
-            self._file.write('maxsat后路径数量：{}\t过滤后：{}\n\nclasses:\t{}\n\n'.format
+            print("path number after maxsat: ", sat.n_rules_after_max, " after filter: ", sat.n_rules_after_filter, '\n')
+            self._file.write('path number after maxsat: {}\tafter filter: {}\n\nclasses:\t{}\n\n'.format
                              (sat.n_rules_after_max, sat.n_rules_after_filter, self._clf.classes_))
         else:
             print('no maxsat')
