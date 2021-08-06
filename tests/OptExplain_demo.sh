@@ -1,1 +1,1 @@
-/usr/bin/python3.8 	OptExplain_diabetes.py
+python 	OptExplain_diabetes.py

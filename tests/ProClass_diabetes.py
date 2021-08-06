@@ -36,9 +36,9 @@ if __name__ == "__main__":
         fit(X_train, y_train)
 
     file_num = 1
-    while os.path.exists('./profile/' + model_name + str(file_num) + '_proClass.txt') is True:
+    while os.path.exists('./proClass/' + model_name + str(file_num) + '_proClass.txt') is True:
         file_num += 1
-    file = open('./profile/' + model_name + str(file_num) + '_proClass.txt', 'w')
+    file = open('./proClass/' + model_name + str(file_num) + '_proClass.txt', 'w')
 
     m = MainProcess(clf, X_test, y_test, file, generation=20, scale=20,
                     conjunction=False, maxsat_on=True, tailor=False, fitness_func='Pro')
@@ -52,16 +52,16 @@ if __name__ == "__main__":
     ex.extract_forest_paths()
     ex.rule_filter()
     print('max_rule', ex.max_rule, 'max_node', ex.max_node)
-    print("原始路径数量：", ex.n_original_leaves_num)
-    print('原始scale；', ex.scale)
-    print("rule filter后路径数量：", len(ex._forest_values))
+    print("original path number: ", ex.n_original_leaves_num)
+    print('original scale: ', ex.scale)
+    print("original path number after rule filter: ", len(ex._forest_values))
 
     sat = Z3Process(ex, k)
     sat.leaves_partition()
     sat.maxsat()
     sat.run_filter()
 
-    print("maxsat后路径数量：", sat.n_rules_after_max, " 过滤后： ", sat.n_rules_after_filter, '\n')
+    print("original path number after maxsat: ", sat.n_rules_after_max, " after filter: ", sat.n_rules_after_filter, '\n')
     print('classes:', clf.classes_)
 
     f = FormulaeEstimator(sat, conjunction=True, classes=clf.classes_)

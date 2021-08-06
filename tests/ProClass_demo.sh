@@ -1,1 +1,1 @@
-/usr/bin/python3.8 	ProClass_diabetes.py
+python 	ProClass_diabetes.py
