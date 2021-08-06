@@ -1,0 +1,8 @@
+原始路径数量： 11167
+rule filter后路径数量： 10143
+maxsat后路径数量： 2828  过滤后：  2828
+
+Group0: |16617.0samples| 1524rules| (2.0, 0.0)
+(feature_0 <= 2.5) Λ (feature_0 > 2.0) Λ (feature_1 <= 91.5) Λ (feature_1 > 90.0) Λ (feature_2 <= 75.0) Λ (feature_2 > 74.5) Λ (feature_3 <= 29.0) Λ (feature_3 > 28.5) Λ (feature_4 <= 63.0) Λ (feature_4 > 61.5) Λ (feature_5 <= 24.2) Λ (feature_5 > 24.1) Λ (feature_6 <= 0.2) Λ (feature_6 > 0.2) Λ (feature_7 <= 24.5) Λ (feature_7 > 24.0) 
+Group1: |9316.0samples| 1304rules| (0.0, 2.0)
+(feature_0 <= 9.0) Λ (feature_0 > 8.5) Λ (feature_1 <= 175.0) Λ (feature_1 > 173.5) Λ (feature_2 <= 71.0) Λ (feature_2 > 70.0) Λ (feature_3 <= 24.0) Λ (feature_3 > 23.5) Λ (feature_4 <= 24.0) Λ (feature_4 > 14.5) Λ (feature_5 <= 36.3) Λ (feature_5 > 36.1) Λ (feature_6 <= 0.6) Λ (feature_6 > 0.6) Λ (feature_7 <= 40.5) Λ (feature_7 > 40.0) 
